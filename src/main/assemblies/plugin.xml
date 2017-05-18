@@ -19,6 +19,7 @@
     <files>
         <file>
             <source>src/main/resources/plugin-descriptor.properties</source>
+            <filtered>true</filtered>
         </file>
     </files>
 </assembly>

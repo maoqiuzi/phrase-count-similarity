@@ -6,24 +6,29 @@
 
     <groupId>com.maoqiuzi</groupId>
     <artifactId>phrase-count-similarity</artifactId>
-    <version>1.0</version>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <elasticsearch.version>5.3.1</elasticsearch.version>
+        <java.version>1.8</java.version>
+    </properties>
     <build>
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>src/main/resources</directory>-->
-                <!--<excludes>-->
-                    <!--<exclude>*.properties</exclude>-->
-                <!--</excludes>-->
-                <!--<filtering>false</filtering>-->
-            <!--</resource>-->
-        <!--</resources>-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>*.properties</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -54,8 +59,5 @@
         </dependency>
     </dependencies>
 
-    <properties>
-        <elasticsearch.version>5.3.1</elasticsearch.version>
-    </properties>
 
 </project>

@@ -10,6 +10,6 @@ public class PhraseCountSimilarityPlugin extends Plugin {
 
     @Override
     public void onIndexModule(IndexModule module) {
-        module.addSimilarity("phrasecountsimilarity", PhraseCountSimilarityProvider::new);
+        module.addSimilarity("phrase-count-similarity", PhraseCountSimilarityProvider::new);
     }
 }

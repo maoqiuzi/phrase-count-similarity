@@ -76,6 +76,7 @@ public class PhraseCountSimilarity extends Similarity {
             float queryWeight = stats.queryWeight;
             float norm = Math.max((float)docWeight, queryWeight);
 //            return norms == null ? raw : raw / norm;
+            // TODO: 5/17/17 change it to actual phrase count 
             return 777.0f;
         }
 
