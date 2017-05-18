@@ -27,11 +27,11 @@ public class PhraseCountSimilarity extends Similarity {
         return (long)numTerms;
     }
 
-    private static class OverlapStats extends Similarity.SimWeight {
+    private static class PhraseCountStats extends Similarity.SimWeight {
         private final String field;
         private float queryWeight;
 
-        public OverlapStats(String field, float queryWeight) {
+        public PhraseCountStats(String field, float queryWeight) {
             this.field = field;
             this.queryWeight = queryWeight;
         }
@@ -51,20 +51,20 @@ public class PhraseCountSimilarity extends Similarity {
     @Override
     public final SimWeight computeWeight(CollectionStatistics collectionStats, TermStatistics... termStats) {
         float numTerms = (float)termStats.length;
-        return new OverlapStats(collectionStats.field(), numTerms);
+        return new PhraseCountStats(collectionStats.field(), numTerms);
     }
 
     @Override
     public final SimScorer simScorer(SimWeight stats, LeafReaderContext context) throws IOException {
-        OverlapStats overlapStats = (OverlapStats) stats;
-        return new OverlapScorer(overlapStats, context.reader().getNormValues(overlapStats.field));
+        PhraseCountStats phraseCountStats = (PhraseCountStats) stats;
+        return new OverlapScorer(phraseCountStats, context.reader().getNormValues(phraseCountStats.field));
     }
 
     private final class OverlapScorer extends SimScorer {
-        private final OverlapStats stats;
+        private final PhraseCountStats stats;
         private final NumericDocValues norms;
 
-        OverlapScorer(OverlapStats stats, NumericDocValues norms) throws IOException {
+        OverlapScorer(PhraseCountStats stats, NumericDocValues norms) throws IOException {
             this.stats = stats;
             this.norms = norms;
         }
@@ -76,7 +76,7 @@ public class PhraseCountSimilarity extends Similarity {
             float queryWeight = stats.queryWeight;
             float norm = Math.max((float)docWeight, queryWeight);
 //            return norms == null ? raw : raw / norm;
-            // TODO: 5/17/17 change it to actual phrase count 
+            // TODO: 5/17/17 change it to actual phrase count
             return 777.0f;
         }
 

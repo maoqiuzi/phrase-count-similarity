@@ -13,6 +13,7 @@
         <java.version>1.8</java.version>
     </properties>
     <build>
+        <finalName>${project.artifactId}-${elasticsearch.version}-${version}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
