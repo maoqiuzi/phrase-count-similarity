@@ -1,12 +1,16 @@
 # phrase-count-similarity
 
 ## Installation
-run `mvn package` to compile project
+Change the elasticsearch.version in pom into target elasticsearch version. Tested in 5.3.1 and 5.4.0.
 
-then run
+Run `mvn package` to compile project
+
+Then run
 `/bin/elasticsearch-plugins install file:/path-to-file/filename.zip`
 
-make sure to include the "file:/" inside the cmd, because otherwise elasticsearch would return unknown plugin.
+Make sure to include the "file:/" inside the cmd, because otherwise elasticsearch would return unknown plugin.
+
+Or download the zip file from target/releases/
 
 ## Usage
 sample usage in Kibana:
