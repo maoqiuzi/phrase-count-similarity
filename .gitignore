@@ -1,6 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Maven template
-target/
+target/*
+!/target/releases/
+
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -22,5 +24,3 @@ buildNumber.properties
 /out/
 
 .DS_Store
-!/target/releases/
-/.gitignore
