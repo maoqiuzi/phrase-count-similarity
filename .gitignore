@@ -22,3 +22,5 @@ buildNumber.properties
 /out/
 
 .DS_Store
+!/target/releases/
+/.gitignore
